@@ -1134,3 +1134,6 @@ section {
   font-size: 13px;
   color: #ccc;
 }
+.wide-img{
+  max-width: 100%;
+}
