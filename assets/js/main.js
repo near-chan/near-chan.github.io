@@ -110,14 +110,99 @@
     onscroll(document, toggleBacktotop)
   }
 
-  /**
-   * Mobile nav toggle
+  /**Mobile nav toggle
    */
   on('click', '.mobile-nav-toggle', function(e) {
     select('#navbar').classList.toggle('navbar-mobile')
     this.classList.toggle('bi-list')
     this.classList.toggle('bi-x')
   })
+  /** gallery code
+   */
+  on("click","img.img-preview",function(e){
+    e.preventDefault()
+    var modal =document.getElementById("img-modal")
+    modal.querySelector("img").src=e.target.src;
+    modal.style.display="block";
+  });
+  //generate gallery from json
+  var creators=[
+    {near:"nearchan.near",name:"NearChan guild",twitter:null},
+    {near:"",name:"Garrid",twitter:"garridspen"},
+    {near:"riri.near",name:"riri.near",twitter:"ririera05"},
+    {near:"khronos.near",name:"KhronosArts",twitter:"KhronosArts"},
+    {near:"katrinapadayhag.near",name:"kuroneko96",twitter:"goyangi_kuro"},
+    {near:"parzival.near",name:"Franz // フランツ",twitter:"FranzOniiChan"},
+    {near:"agathearts.near",name:"Agathe Arts Alyx",twitter:"agathearts_alyx"},
+    {near:"nearbits.near",name:"NEARBits Whale Club",twitter:"nearbits"},
+    {near:"mzarts.near",name:"mzarts",twitter:null},
+    {near:"rubenzmart.near",name:"rubenzmart",twitter:null},
+    {near:"twinblade_ph.near",name:"twinblade ph",twitter:null},
+  ]
+  // comand to fetch info from tweet
+  //console.log(`{name:"${}",twitter:"${}"}`)
+  var pieces=[
+    {title:"NEARchan Genesis Card",creator:0,image:"https://ipfs.fleek.co/ipfs/bafybeiakkncanwtl4hhdwpnfpfn4mjmakrftwqbz7uwdwyexgvh64tdztm",link:"https://paras.id/token/bafybeigwzescoavvnbuugxnys7wzivpjdx7jczfygstqavor4exbnkzluu"},
+    {title:"NEARchan#001",creator:5,image:"https://ipfs.fleek.co/ipfs/bafybeifxvh2poefhhjtzcmefrr6ujlh7vtwtrdzxqoncwgklawzc4e6a7u",link:"https://paras.id/token/bafybeigxnooifqytnuamuitd3s2gfy3dtfxhhhjypesolpzi5ws2kz7mci"},
+    {title:"NEARchan #01",creator:4,image:"https://ipfs.fleek.co/ipfs/bafybeidtpdkmntte7kup3lhpgrzurifpmgmckyaiwv7gizyma4pfr3alqe",link:"https://paras.id/token/bafybeiffemaofckkun6oyabqynvhmgzf53633ecnrhqd2xkdh5xjcnq52i"},
+    {title:"NEARchan #02",creator:4,image:"https://ipfs.fleek.co/ipfs/bafybeics7xi6ebk22dwzxmmwty7g66luogq5tc7xfzl3vkwz5c232flnwa",link:"https://paras.id/token/bafybeieolyfiuek4ybsglq5wucprcpeup4wuwzt2bhmsyaewjhfh7veb2q"},
+    {title:"NEARchan",creator:8,image:"https://ipfs.fleek.co/ipfs/bafybeicl4x3zmnbh6a5ymre5ploblf7y6oxmplwhdaq42ka4djfae2erou",link:"https://paras.id/token/bafybeihd6tounoosrdak7ndemgo7bvubj3rzap242jpa4e4o57yxz5a3b4"},
+    {title:"NEARchan",creator:6,image:"https://ipfs.fleek.co/ipfs/bafybeifdebx2dcupazaoxlac5q3cc7l2l3gekzyz6vp5tylatnbp5udbra",link:"https://paras.id/token/bafybeian4gzwepa3dywmhjk6vbvjylb57k63aqkguvrlbx6ds5qd4qnaja"},
+    {title:"NEARchan [MECH4]",creator:9,image:"https://ipfs.fleek.co/ipfs/bafybeidbldr6vbjvc23vvm4omllgiaqyqxfd6vf5yyxs47azqkwkz5fjqe",link:"https://paras.id/token/bafybeigvgyty7mrhca6wag7767uogpkujdtqqezw6bywk6bnf5zuqzixiq"},
+    {title:"NEARchan#01",creator:2,image:"https://ipfs.fleek.co/ipfs/bafybeie2t7qchynrxysxc5cm27j3geqkbw5yu5r3c3fkmpig7yjfpnsmte",link:"https://paras.id/token/bafybeifw72vzvbqbd75xj5yjcemaneoovj64crsrnuqqjknfxqigml7kya"},
+    {title:"NEARchan #1",creator:3,image:"https://ipfs.fleek.co/ipfs/bafybeiajqemybulcvjutva7uyowdjtgqxmjnfzf4syrrinx7y7jojrguke",link:"https://paras.id/token/bafybeibe7fqbx4obo7xorlz3poxoost6eazwujy6rhi46d5ssnykgxajiq"},
+    {title:"NEARBit #0043 NEARchan",creator:7,image:"https://ipfs.fleek.co/ipfs/bafybeibbjt5d4ns4ogl3r6elnpgclyjzkhqihtfno5vy2osssvsyhfwh7u",link:"https://paras.id/token/bafybeicf2p52mglh6jpoacmyjkvtgfhhoccbrdojuoefhz5iv7i3r2xtc4"},
+    {
+      creator:10,
+      image:"https://ipfs.fleek.co/ipfs/bafybeicghqnafssvm25ybapl3kwvpstavtl6bo6ph4xq6wnrf33lxoqjxe",
+      link:"https://paras.id/token/bafybeihuje5vw3q5jdhfp67tv2mwfall6afmdnu4fswdds5pnbg6ysi5xy",
+      title:"NEAR-CHAN Fan Art"
+    },
+    {
+      creator:10,
+      image:"https://ipfs.fleek.co/ipfs/bafybeifaix2cftnf5whccyc75yj7v6qobzchngucnfskav27tudq2ke5dq",
+      link:"https://paras.id/token/bafybeiakztaniftlmltgacpf6fdqxitaq3f4fhd3u3gkqz2sjcropc6tii",
+      title:"Animated NEAR-CHAN Fan Art"
+    },
+  ]
+  //add pieces into html
+  var gallery =document.querySelector(".portfolio-container")
+  pieces.forEach(x=>{
+    var template=`
+    <div class="col-lg-4 col-md-6 portfolio-item filter-near">
+      <img src="${x.image}" class="img-fluid" alt="">
+      <div class="portfolio-info">
+        <h4>${x.title}</h4>
+        <h5 class="gallery-made-by">Made by: ${creators[x.creator].name}</h5>
+        <p class="filterTag">$near</p>
+        ${creators[x.creator].twitter?`<a href="${creators[x.creator].twitter}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"><i class="bi bi-twitter"></i></a>`:""}
+        <a target="_blank" href="https://paras.id/token/bafybeigwzescoavvnbuugxnys7wzivpjdx7jczfygstqavor4exbnkzluu" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+      </div>
+    </div>`;
+    gallery.insertAdjacentHTML("beforeend",template);
+  })
+//command to fetch relevant data from paras page
+
+/*
+  var copytext=`{
+    creator:"${document.querySelector("#activityListScroll a").href.split("https://paras.id/")[1]}",
+    image:"${document.querySelector(".card img").src}",
+    link:"${window.location.href}",
+    title:"${document.querySelector("h1").innerText}"
+  },`;
+  const copyToClipboard = str => {
+    const el = document.createElement('textarea');
+    el.value = str;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+  };
+  copyToClipboard(copytext);
+*/
+  function close_modal(){
+    document.getElementById("img-modal").style.display="none";  
+  }
 
   /**
    * Mobile nav dropdowns activate
@@ -187,13 +272,6 @@
       }, true);
     }
 
-  });
-
-  /**
-   * Initiate portfolio lightbox 
-   */
-  const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
   });
 
   /**
