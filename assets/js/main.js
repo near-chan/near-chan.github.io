@@ -119,16 +119,10 @@
   })
   /** gallery code
    */
-  on("click","img.img-preview",function(e){
-    e.preventDefault()
-    var modal =document.getElementById("img-modal")
-    modal.querySelector("img").src=e.target.src;
-    modal.style.display="block";
-  });
   //generate gallery from json
   var creators=[
     {near:"nearchan.near",name:"NearChan guild",twitter:null},
-    {near:"",name:"Garrid",twitter:"garridspen"},
+    {near:"garrid.near",name:"Garrid",twitter:"garridspen"},
     {near:"riri.near",name:"riri.near",twitter:"ririera05"},
     {near:"khronos.near",name:"KhronosArts",twitter:"KhronosArts"},
     {near:"katrinapadayhag.near",name:"kuroneko96",twitter:"goyangi_kuro"},
@@ -138,6 +132,7 @@
     {near:"mzarts.near",name:"mzarts",twitter:null},
     {near:"rubenzmart.near",name:"rubenzmart",twitter:null},
     {near:"twinblade_ph.near",name:"twinblade ph",twitter:null},
+    {near:"rabukome1.near",name:"rabukome1",twitter:"rabukome1"},
   ]
   // comand to fetch info from tweet
   //console.log(`{name:"${}",twitter:"${}"}`)
@@ -164,23 +159,43 @@
       link:"https://paras.id/token/bafybeiakztaniftlmltgacpf6fdqxitaq3f4fhd3u3gkqz2sjcropc6tii",
       title:"Animated NEAR-CHAN Fan Art"
     },
+    {
+      creator:11,
+      image:"https://ipfs.fleek.co/ipfs/bafybeigxylxxhe7luvmmifkizt2ni3l57rho7ohbmd7ifpypniqry7sfjq",
+      link:"https://paras.id/token/bafybeifwg4hos5us3l3tdivgi4mkdninjl3jbvzizmq4rdhdyk4wr7xtjq",
+      title:"NEARchan on Stars"
+    },
   ]
+  //https://paras.id/search?q=nearchan&sort=cardcreate
   //add pieces into html
   var gallery =document.querySelector(".portfolio-container")
   pieces.forEach(x=>{
     var template=`
     <div class="col-lg-4 col-md-6 portfolio-item filter-near">
-      <img src="${x.image}" class="img-fluid" alt="">
-      <div class="portfolio-info">
-        <h4>${x.title}</h4>
-        <h5 class="gallery-made-by">Made by: ${creators[x.creator].name}</h5>
-        <p class="filterTag">$near</p>
-        ${creators[x.creator].twitter?`<a href="${creators[x.creator].twitter}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"><i class="bi bi-twitter"></i></a>`:""}
-        <a target="_blank" href="https://paras.id/token/bafybeigwzescoavvnbuugxnys7wzivpjdx7jczfygstqavor4exbnkzluu" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+      <img loading="lazy" src="${x.image}" class="img-fluid" alt="">
+      <div class="portfolio-info-holder">
+        <div class="portfolio-info">
+          <h4>${x.title}</h4>
+          <h5 class="gallery-made-by">Made by: ${creators[x.creator].name}</h5>
+          <p class="filterTag">$near</p>
+          ${creators[x.creator].twitter?`<a href="https://twitter.com/${creators[x.creator].twitter}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"><i class="bi bi-twitter"></i></a>`:""}
+          <a target="_blank" href="${x.link}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+        </div>
       </div>
     </div>`;
     gallery.insertAdjacentHTML("beforeend",template);
   })
+  gallery.addEventListener("click",e=>{
+    if(e.target.matches("img")){
+      // e.preventDefault()
+      var modal =document.getElementById("img-modal")
+      modal.querySelector("img").src=e.target.src;
+      modal.style.display="block";
+    }
+  })
+  // on("click","img.img-preview",function(e){
+  //   
+  // });
 //command to fetch relevant data from paras page
 
 /*
@@ -200,6 +215,7 @@
   };
   copyToClipboard(copytext);
 */
+  document.getElementById("img-modal").addEventListener("click",close_modal)
   function close_modal(){
     document.getElementById("img-modal").style.display="none";  
   }
@@ -249,10 +265,10 @@
   window.addEventListener('load', () => {
     let portfolioContainer = select('.portfolio-container');
     if (portfolioContainer) {
-      let portfolioIsotope = new Isotope(portfolioContainer, {
-        itemSelector: '.portfolio-item',
-        layoutMode: 'fitRows'
-      });
+      // let portfolioIsotope = new Isotope(portfolioContainer, {
+      //   itemSelector: '.portfolio-item',
+      //   layoutMode: 'fitRows'
+      // });
 
       let portfolioFilters = select('#portfolio-flters li', true);
 
@@ -263,12 +279,12 @@
         });
         this.classList.add('filter-active');
 
-        portfolioIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-        portfolioIsotope.on('arrangeComplete', function() {
-          AOS.refresh()
-        });
+        // portfolioIsotope.arrange({
+        //   filter: this.getAttribute('data-filter')
+        // });
+        // portfolioIsotope.on('arrangeComplete', function() {
+        //   AOS.refresh()
+        // });
       }, true);
     }
 
