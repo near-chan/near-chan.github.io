@@ -436,7 +436,7 @@ h1, h2, h3, h6 {
   }
 }
 
-#hero .btn-get-started {
+.btn-get-started {
   font-family: "Poppins", sans-serif;
   text-transform: uppercase;
   font-weight: 500;
@@ -451,7 +451,7 @@ h1, h2, h3, h6 {
   color: #fff;
 }
 
-#hero .btn-get-started:hover {
+.btn-get-started:hover {
   background: #2dc997;
   border: 2px solid #2dc997;
 }
@@ -1175,6 +1175,7 @@ section {
   display: block;
   /* width: 80%; */
   max-height: 90vh;
+  max-width: 90vh;
 
 }
 
@@ -1223,4 +1224,10 @@ section {
   .modal-content {
     width: 100%;
   }
+}
+.green{
+  color: #2dc997;
+}
+.green:hover{
+  color:white;
 }

@@ -145,7 +145,7 @@
     {title:"NEARchan",creator:6,image:"https://ipfs.fleek.co/ipfs/bafybeifdebx2dcupazaoxlac5q3cc7l2l3gekzyz6vp5tylatnbp5udbra",link:"https://paras.id/token/bafybeian4gzwepa3dywmhjk6vbvjylb57k63aqkguvrlbx6ds5qd4qnaja"},
     {title:"NEARchan [MECH4]",creator:9,image:"https://ipfs.fleek.co/ipfs/bafybeidbldr6vbjvc23vvm4omllgiaqyqxfd6vf5yyxs47azqkwkz5fjqe",link:"https://paras.id/token/bafybeigvgyty7mrhca6wag7767uogpkujdtqqezw6bywk6bnf5zuqzixiq"},
     {title:"NEARchan#01",creator:2,image:"https://ipfs.fleek.co/ipfs/bafybeie2t7qchynrxysxc5cm27j3geqkbw5yu5r3c3fkmpig7yjfpnsmte",link:"https://paras.id/token/bafybeifw72vzvbqbd75xj5yjcemaneoovj64crsrnuqqjknfxqigml7kya"},
-    {title:"NEARchan #1",creator:3,image:"https://ipfs.fleek.co/ipfs/bafybeiajqemybulcvjutva7uyowdjtgqxmjnfzf4syrrinx7y7jojrguke",link:"https://paras.id/token/bafybeiblcqbgc6m5tg66itw2llwe33xfa3inrc4m4a6njq27w4ltwa4kcm"},
+    {title:"NEARchan #1",creator:3,image:"https://ipfs.fleek.co/ipfs/bafybeibiik6emp4m7n3gzuoeausyswh4us5i4lylgj3ccj6vsfeul7llxi",link:"https://paras.id/token/bafybeiblcqbgc6m5tg66itw2llwe33xfa3inrc4m4a6njq27w4ltwa4kcm"},
     {title:"NEARBit #0043 NEARchan",creator:7,image:"https://ipfs.fleek.co/ipfs/bafybeibbjt5d4ns4ogl3r6elnpgclyjzkhqihtfno5vy2osssvsyhfwh7u",link:"https://paras.id/token/bafybeicf2p52mglh6jpoacmyjkvtgfhhoccbrdojuoefhz5iv7i3r2xtc4"},
     {
       creator:10,
