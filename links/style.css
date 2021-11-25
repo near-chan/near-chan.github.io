@@ -38,6 +38,19 @@ body {
   box-shadow: var(--normal-shadow);
 }
 
+.stats-gallery {
+  width: 20em;
+  object-fit: contain;
+  border-radius: .5em;
+  margin-top: 1em;
+  box-shadow: var(--normal-shadow);
+  transition: 0.5s;  
+}
+
+.stats-gallery:hover {
+  transform: scale(1.1);
+}
+
 .username {
   font-size: 3rem;
   text-decoration: none;
@@ -62,7 +75,7 @@ body {
   color: white;
   border-radius: 10px;
   text-align: center;
-  width: 20em;
+  width: 15em;
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   background-size: 400% 400%;
   box-shadow: var(--normal-shadow);
